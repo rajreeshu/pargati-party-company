@@ -1,0 +1,6 @@
+pandas
+reportlab
+babel
+openpyxl
+tk
+tcl

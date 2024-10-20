@@ -1,0 +1,14 @@
+from enum import Enum
+
+class CompanyName(Enum):
+    MAGIK = 'MAGIK'
+    CONA = 'CONA'
+    ESTELLA_CONA='ESTELLA (CONA)'
+    POLYCAB = 'POLYCAB'
+    POLYCAB_LIGHT='POLYCAB LIGHTS'
+    POLYCAB_MCB='POLYCAB MCB'
+    FAN_ALL='FAN (ALL)'
+    GEYSER_ALL='GEYSERS (ALL)'
+    LIGHT_ALL='LIGHT (ALL)'
+    MCB_ALL='MCB (ALL)'
+    WIRE_ALL='WIRE (ALL)'
