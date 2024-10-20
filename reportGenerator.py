@@ -24,12 +24,26 @@ class ReportGeneratorApp:
         self.main_frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
         self.file_label = tk.Label(self.main_frame, text="No file selected" if self.file_path is None else Path(self.file_path).name, fg="green")
-
         self.file_label.pack(pady=10)
 
+        # # Create UI elements
+        # self.upload_button = tk.Button(self.main_frame, text="Upload Excel Report of Vyapar", command=self.upload_file, width=30)
+        # self.upload_button.pack(pady=10)
+
         # Create UI elements
-        self.upload_button = tk.Button(self.main_frame, text="Upload Excel Report of Vyapar", command=self.upload_file, width=30)
-        self.upload_button.pack(pady=10)
+        self.upload_frame = tk.Frame(self.main_frame)
+        self.upload_frame.pack(pady=10)
+
+        self.upload_button = tk.Button(self.upload_frame, text="Upload Excel Report of Vyapar",
+                                       command=self.upload_file, width=30)
+        self.upload_button.grid(row=0, column=0)
+
+        # Load the circular "i" image for the info button
+        self.info_image = tk.PhotoImage(file="static/info.png")  # Replace with the correct path to your image
+
+        # Add an info button with the image
+        self.info_button = tk.Button(self.upload_frame, image=self.info_image, command=self.show_info, bd=0)
+        self.info_button.grid(row=0, column=1, padx=5)
 
         # Add a dropdown for category selection
         self.category_label = tk.Label(self.main_frame, text="Select Category:")
@@ -140,4 +154,24 @@ class ReportGeneratorApp:
 
         ok_button = tk.Button(dialog, text="OK", command=on_close)
         ok_button.pack(pady=10)
+
+    def show_info(self):
+        # Show information in bullet points using messagebox
+        info_text = (
+            "• Open Vyapar and Goto Reports (left Panel).\n"
+            "• Goto Party statement\n"
+            "• Select the Date range and Party name.\n"
+            "• Click on 'Excel Report' button in Right top corner\n"
+            "• Tick 'Print Item Description'\n"
+            "• Click Ok then Save.\n \n"
+            
+            "• Upload the Saved Report in the App'\n"
+            "• Select the Company\n"
+            "• Click on 'Generate PDF Report'\n \n"
+            
+            "• PDF will be saved on the same location of the Vyapar Excel file\n"
+            "• Click on 'Open PDF' to Open the PDF directly \n"
+
+        )
+        messagebox.showinfo("Information", info_text)
 
